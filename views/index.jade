@@ -17,6 +17,16 @@ block content
         div#about.header-user.trans 关于
   div.container
     div#search
+      div.search-center
+        form.form-inline.search-form
+          div.form-group
+            input.form-control.search-font#search-box(type="text" placeholder="Search")
+          div.form-group
+            select.form-control.search-select.search-font
+              option 谷歌
+              option 百度
+              option 必应
+          button.btn.btn-primary.search-btn-font(type="submit") 搜索
     div#website
   h1= title
   p Welcome to #{title}
