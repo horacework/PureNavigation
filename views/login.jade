@@ -1,0 +1,43 @@
+//
+   Created by HoraceChan on 2016/1/27.
+
+extends layout-without-footer
+
+block content
+   div#login-container
+      div.inner-bg
+         div.container
+            div.row
+               div.col-sm-8.col-sm-offset-2.login-head-font
+                  h1
+                     strong Pure
+                     |  Navigation
+                  div.login-head-desc
+                     p No ads, no advertising, no waste, no nonsense, only navigation for you !
+            div.row
+               div.col-sm-6.col-sm-offset-3.login-box
+                  div.login-box-top
+                     div.login-box-top-left
+                        h3 Login to your Navi
+                        p Enter your username to log in
+                     div.login-box-top-right
+                        i.fa.fa-lock
+                  div.login-box-bottom
+                     form.login-form(role="form" method="post")
+                        div.form-group
+                           label.sr-only(for="form-username") Username:
+                           input#form-username.form-control.input-lg(type="text" name="form-username" placeholder="Login only need username...")
+                        button.btn.btn-primary.btn-lg.btn-block(type="submit") Sign In!
+            div.row
+               div.col-sm-6.col-sm-offset-3.social-login
+                  h3 ... or login with：
+                  div.social-login-buttons
+                     a.btn.btn-link
+                        i.fa.fa-facebook
+                        |  Facebook
+                     a.btn.btn-link
+                        i.fa.fa-qq
+                        |  QQ
+                     a.btn.btn-link
+                        i.fa.fa-weibo
+                        |  Sina Weibo
