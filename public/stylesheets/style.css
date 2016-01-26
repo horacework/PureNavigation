@@ -140,12 +140,13 @@ body {
 
 
     .index-container {
-        width: 885px;
+        width: 855px;
+        margin: auto;
     }
 
 @media (min-width: 1200px) {
     .index-container {
-        width: 1170px;
+        width: 1140px;
     }
 }
     .form-inline .form-group {
