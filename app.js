@@ -1,8 +1,12 @@
 var config = require('./config');
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
+//var favicon = require('serve-favicon');
 var logger = require('morgan');
+var mongoose = require('mongoose');
+
+//var orm = require('orm');
+
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
@@ -13,6 +17,10 @@ var api = require('./routes/api');
 var app = express();
 
 app.config = config;
+
+app.db = mongoose.createConnection(app.config.dbHost,app.config.dbName);
+
+require('./models')(app, mongoose);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,9 +34,25 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
-app.use('/api',api);
+//app.use(orm.express(config.mysql.URL, {
+//  define: function (db, models, next) {
+//    require('./models')(db, models);
+//    next();
+//  }
+//}));
+
+mongoose.connect('mongodb://localhost/purenavi');
+app.db.on('error',console.error.bind(console,'连接错误:'));
+app.db.once('open',function(){
+  //一次打开记录
+  console.log("连接数据库成功！")
+});
+
+require('./routes')(app);
+
+//app.use('/', routes);
+//app.use('/users', users);
+//app.use('/api',api);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
