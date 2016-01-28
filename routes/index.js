@@ -38,8 +38,8 @@ exports = module.exports = function(app) {
         //    res.send('lalalal');
         //})
         //console.log(app);
-        req.app.db.models.users.find(function(err,person){
-            console.log(person);
+        req.app.db.models.users.find({"username":"Ren545992308"},function(err,person){
+            console.log(person[0].email);
             res.send("qqq");
         });
 

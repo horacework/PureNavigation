@@ -265,6 +265,9 @@ body {
         text-align: right;
         opacity: 0.3;
     }
+    .login-box-top .login-box-top-right .btnhover:hover{
+        color: rgb(130, 193, 247);
+    }
     .login-box-top h3{
         margin-top: 0;
         margin-bottom: 10px;

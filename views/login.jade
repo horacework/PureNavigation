@@ -14,20 +14,37 @@ block content
                      |  Navigation
                   div.login-head-desc
                      p No ads, no advertising, no waste, no nonsense, only navigation for you !
-            div.row
+            div.row#signinBox
                div.col-sm-6.col-sm-offset-3.login-box
                   div.login-box-top
                      div.login-box-top-left
                         h3 Login to your Navi
-                        p Enter your username to log in
+                        p Enter your username to log in.
                      div.login-box-top-right
-                        i.fa.fa-lock
+                        i.fa.fa-user-plus.btnhover.trans#signupBtn
                   div.login-box-bottom
-                     form.login-form(role="form" method="post")
+                     form.login-form(role="form" method="post" action="/signin")
                         div.form-group
                            label.sr-only(for="form-username") Username:
                            input#form-username.form-control.input-lg(type="text" name="form-username" placeholder="Login only need username...")
                         button.btn.btn-primary.btn-lg.btn-block(type="submit") Sign In!
+            div.row#signupBox(style="display:none")
+               div.col-sm-6.col-sm-offset-3.login-box
+                  div.login-box-top
+                     div.login-box-top-left
+                        h3 Welcome you to register
+                        p Enter your username and email address to sign up.
+                     div.login-box-top-right
+                        i.fa.fa-sign-in.btnhover.trans#signinBtn
+                  div.login-box-bottom
+                     form.login-form(role="form" method="post" action="/signup")
+                        div.form-group
+                           label.sr-only(for="form-username") Username:
+                           input#form-username.form-control.input-lg(type="text" name="form-username" placeholder="Login only need username...")
+                        div.form-group
+                           label(for="form-username") Email:
+                           input#form-username.form-control.input-lg(type="text" name="form-username" placeholder="Email address,Optianal")
+                        button.btn.btn-primary.btn-lg.btn-block(type="submit") Sign Up!
             div.row
                div.col-sm-6.col-sm-offset-3.social-login
                   h3 ... or login with：
@@ -41,3 +58,4 @@ block content
                      a.btn.btn-link
                         i.fa.fa-weibo
                         |  Sina Weibo
+   script(src="../javascripts/login.js")
