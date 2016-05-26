@@ -19,8 +19,3 @@ exports.init = function(req, res){
     }
 
 };
-
-exports.login = function(req, res){
-    console.log(req.cookies.userId);
-    res.render('login',{ title: '导航登录页' });
-};
