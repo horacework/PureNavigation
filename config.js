@@ -1,9 +1,12 @@
 'use strict';
 
-exports.dbHost = "localhost";
-
-exports.dbName = "purenavi";
+var db = {
+    host:"localhost",
+    name:"nav",
+    username:"root",
+    password:""
+};
 
 exports.mysql = {
-    URL: 'mysql://root:@127.0.0.1:3306/purenavi'
+    url: "mysql://"+db.username+":"+db.password+"@"+db.host+"/"+db.name
 };

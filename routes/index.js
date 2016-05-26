@@ -31,17 +31,15 @@ exports = module.exports = function(app) {
 
     app.get('/login', require('../views/index').login);
 
+    //测试数据库
     app.get('/dbtest',function(req,res){
-        //app.models.users.findOne(function(err,person){
-        //    console.log("person:"+person);
-        //    console.log("err:"+err);
-        //    res.send('lalalal');
-        //})
-        //console.log(app);
-        req.app.db.models.users.find({"username":"Ren545992308"},function(err,person){
-            console.log(person[0].email);
-            res.send("qqq");
-        });
-
+        req.models.person.find({},function(err,results){
+            if(err){
+                console.log(err);
+            }else{
+                console.log(results);
+            }
+            res.send("oooooo");
+        })
     });
-}
+};

@@ -1,15 +1,16 @@
-exports = module.exports = function(app, mongoose) {
-    var userScheMa = new mongoose.Schema({
-        username: String,
-        email: String
+"use strict";
+
+exports = module.exports = function(db,models) {
+    models.user = db.define("user", {
+        id      : {type:'text' , key:true},
+        name    : {type:'text'},
+        level   : {type:'number'},
+        isDel   : {type:'number'}
+    }, {
+        methods: {
+            getUserName:function(){
+                return this.name;
+            }
+        }
     });
-    app.db.model('users',userScheMa);
 };
-//var mongoose = require('mongoose');
-//var Schema = mongoose.Schema;
-//
-//var userScheMa = new Schema({
-//    username: String,
-//    email: String
-//});
-//exports.users = mongoose.model('users',userScheMa);

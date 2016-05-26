@@ -1,23 +1,10 @@
-/**
- * Created by HoraceChan on 2016/1/28.
- */
+"use strict";
 
-exports = module.exports = function(app, mongoose) {
-    //embeddable docs first
-    require('./user')(app, mongoose);
-    require('./userdata')(app, mongoose);
+exports = module.exports = function(db,models) {
+
+    require("../models/user")(db,models);
+    require("../models/links")(db,models);
+    require("../models/clicklog")(db,models);
+    require("../models/cookies")(db,models);
+
 };
-//var mongoose = require('mongoose');
-//var Schema = mongoose.Schema;
-//
-//var userScheMa = new Schema({
-//    username: String,
-//    email: String
-//});
-//exports.users = mongoose.model('users',userScheMa);
-//
-//var userdataScheMa = new Schema({
-//    username: String,
-//    email: String
-//});
-//exports.userdata = mongoose.model('userdata',userdataScheMa);
