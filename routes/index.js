@@ -38,7 +38,8 @@ exports = module.exports = function(app) {
     //测试cookies
     app.get('/getcookies',function(req, res){
 
-        res.cookie['userId'] = "lalalalal";
+        //res.cookie['userId'] = "lalalalal";
+        res.cookie("userCook","193934848");
         res.send("保存cookies成功");
 
     });

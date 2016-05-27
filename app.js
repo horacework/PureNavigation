@@ -45,6 +45,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cookieSession({ secret: '123456', cookie: { maxAge: 60 * 60 * 1000 }}));
+//app.use(cookieSession());
 app.use(express.static(path.join(__dirname, 'public')));
 
 

@@ -23,11 +23,11 @@ block content
                      div.login-box-top-right
                         i.fa.fa-user-plus.btnhover.trans#signupBtn
                   div.login-box-bottom
-                     form.login-form(role="form" method="post" action="/signin")
+                     form.login-form(role="form")
                         div.form-group
                            label.sr-only(for="form-username") Username:
-                           input#form-username.form-control.input-lg(type="text" name="form-username" placeholder="Login only need username...")
-                        button.btn.btn-primary.btn-lg.btn-block(type="submit") Sign In!
+                           input#login-username.form-control.input-lg(type="text" name="form-username" placeholder="Login only need username...")
+                        input#loginBtn.btn.btn-primary.btn-lg.btn-block(type="button" value="Login")
             div.row#signupBox(style="display:none")
                div.col-sm-6.col-sm-offset-3.login-box
                   div.login-box-top
@@ -37,14 +37,14 @@ block content
                      div.login-box-top-right
                         i.fa.fa-sign-in.btnhover.trans#signinBtn
                   div.login-box-bottom
-                     form.login-form(role="form" method="post" action="/signup")
+                     form.login-form(role="form")
                         div.form-group
                            label.sr-only(for="form-username") Username:
-                           input#form-username.form-control.input-lg(type="text" name="form-username" placeholder="Login only need username...")
+                           input#signup-username.form-control.input-lg(type="text" name="form-username" placeholder="Login only need username...")
                         div.form-group
                            label(for="form-username") Email:
-                           input#form-username.form-control.input-lg(type="text" name="form-username" placeholder="Email address,Optianal")
-                        button.btn.btn-primary.btn-lg.btn-block(type="submit") Sign Up!
+                           input#signup-email.form-control.input-lg(type="text" name="form-username" placeholder="Email address,Optianal")
+                        input#signBtn.btn.btn-primary.btn-lg.btn-block(type="button" value="Sign Up")
             div.row
                div.col-sm-6.col-sm-offset-3.social-login
                   h3 ... or login with：
