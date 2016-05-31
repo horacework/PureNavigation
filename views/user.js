@@ -22,7 +22,7 @@ exports.login = function(req, res){
             console.log("ERROR:"+err);
             res.send("发生未知错误！");
         }else{
-            if(result==null){
+            if(result.length==0){
                 res.send("此用户名未注册")
             }else{
                 req.session.userId = result[0].id;

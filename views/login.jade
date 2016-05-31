@@ -26,7 +26,8 @@ block content
                      form.login-form(role="form")
                         div.form-group
                            label.sr-only(for="form-username") Username:
-                           input#login-username.form-control.input-lg(type="text" name="form-username" placeholder="Login only need username...")
+                           input#login-username.form-control.input-lg(type="text" placeholder="Login only need username...")
+                           input.form-control.input-lg(type="text" style="display:none")
                         input#loginBtn.btn.btn-primary.btn-lg.btn-block(type="button" value="Login")
             div.row#signupBox(style="display:none")
                div.col-sm-6.col-sm-offset-3.login-box
@@ -40,10 +41,10 @@ block content
                      form.login-form(role="form")
                         div.form-group
                            label.sr-only(for="form-username") Username:
-                           input#signup-username.form-control.input-lg(type="text" name="form-username" placeholder="Login only need username...")
+                           input#signup-username.form-control.input-lg(type="text" placeholder="Login only need username...")
                         div.form-group
                            label(for="form-username") Email:
-                           input#signup-email.form-control.input-lg(type="text" name="form-username" placeholder="Email address,Optianal")
+                           input#signup-email.form-control.input-lg(type="text" placeholder="Email address,Optianal")
                         input#signBtn.btn.btn-primary.btn-lg.btn-block(type="button" value="Sign Up")
             div.row
                div.col-sm-6.col-sm-offset-3.social-login
