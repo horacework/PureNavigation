@@ -197,7 +197,7 @@ body {
         }
         #website .webItem:hover{
             /*box-shadow: 10px 10px 5px #888888;*/
-            border: 2px solid #E27F15;
+            border: 2px solid #E2E2E2;
         }
             #website .webItem .webDesc{
                 width: inherit;
