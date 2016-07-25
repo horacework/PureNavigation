@@ -184,7 +184,7 @@ body {
     #website{
         width: 100%;
         height: auto;
-        overflow: auto;
+        overflow: hidden;
         background-color: rgba(103, 58, 58, 0.75);
     }
         #website .webItem{

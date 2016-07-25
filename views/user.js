@@ -26,6 +26,7 @@ exports.login = function(req, res){
                 res.send("此用户名未注册")
             }else{
                 req.session.userId = result[0].id;
+                req.session.username = result[0].name;
                 //TODO: cookie保存与记录
                 res.send("成功");
             }

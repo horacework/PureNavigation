@@ -12,7 +12,7 @@ block content
         div#change-bg.trans
           span.change-bg-font.trans.glyphicon.glyphicon-refresh(aria-hidden="true")
       div#header-user
-        div#user.header-user.trans Ren545992308
+        div#user.header-user.trans= username
         div#logout.header-user.trans 登出
         div#about.header-user.trans 关于
   div.index-container
@@ -28,14 +28,10 @@ block content
               option 必应
           button.btn.btn-primary.search-btn-font(type="submit") 搜索
     div#website
+      each item in links
+        div.webItem
+          a.webDesc.trans(href="http://"+item.url target="_blank")= item.name
+          div.webLink= item.url
       div.webItem
-        a.webDesc.trans(href="#" target="_blank") 知乎
-        div.webLink www.zhihu.com
-      a.webItem 新浪微博
-      a.webItem 腾讯网
-      a.webItem 草榴你好啊
-      a.webItem
-      a.webItem
-      a.webItem
-      a.webItem
-
+        a.webDesc.trans(href="#" target="_blank") +
+        //div.webLink www.zhihu.com
