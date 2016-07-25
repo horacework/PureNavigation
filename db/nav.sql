@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100109
 File Encoding         : 65001
 
-Date: 2016-05-28 03:00:29
+Date: 2016-07-25 21:11:52
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -68,8 +68,11 @@ CREATE TABLE `links` (
 -- ----------------------------
 -- Records of links
 -- ----------------------------
-INSERT INTO `links` VALUES ('d5405595-2337-11e6-8f9b-00ff9099da81', 'f65b5b37-2336-11e6-8f9b-00ff9099da81', '知乎', 'www.zhihu.com', '0', '0');
-INSERT INTO `links` VALUES ('d5406177-2337-11e6-8f9b-00ff9099da81', 'f65b5b37-2336-11e6-8f9b-00ff9099da81', 'Horacework', 'horacework.com', '0', '0');
+INSERT INTO `links` VALUES ('5185e9ee-5256-11e6-967b-00ff9268257c', 'f65b5135-2336-11e6-8f9b-00ff9099da81', '网易', 'www.163.com', '0', '0');
+INSERT INTO `links` VALUES ('5185f58a-5256-11e6-967b-00ff9268257c', 'f65b5135-2336-11e6-8f9b-00ff9099da81', 'hao123', 'www.hao123.com', '0', '0');
+INSERT INTO `links` VALUES ('d5405595-2337-11e6-8f9b-00ff9099da81', 'f65b5135-2336-11e6-8f9b-00ff9099da81', '知乎', 'www.zhihu.com', '0', '0');
+INSERT INTO `links` VALUES ('d5406177-2337-11e6-8f9b-00ff9099da81', 'f65b5135-2336-11e6-8f9b-00ff9099da81', 'Horace', 'horacework.com', '0', '0');
+INSERT INTO `links` VALUES ('d5406178-2337-11e6-8f9b-00ff9099da81', 'f65b5135-2336-11e6-8f9b-00ff9099da81', '腾讯网', 'www.qq.com', '0', '0');
 
 -- ----------------------------
 -- Table structure for user
