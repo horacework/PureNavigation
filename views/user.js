@@ -28,7 +28,7 @@ exports.login = function(req, res){
                 req.session.userId = result[0].id;
                 req.session.username = result[0].name;
                 //TODO: cookie保存与记录
-                res.send("成功");
+                cookiesSaveRecord(req,res);
             }
         }
     });
@@ -68,3 +68,21 @@ exports.signup = function(req, res){
     });
 
 };
+
+function cookiesSaveRecord(req,res){
+    //TODO 生成cookies、保存到数据库、发送到客户浏览器
+    var cookieDetail = {};
+    cookieDetail.id = uuid.v4();
+    cookieDetail.userid = req.session.userId;
+    cookieDetail.login = new Date().toLocaleString();
+    req.models.cookies.create(cookieDetail,function(err,result){
+        if(err){
+            console.log("保存cookies失败");
+            res.send("成功");
+        }else{
+            console.log("保存cookies成功！");
+            res.cookie("userCook",cookieDetail.id,{ maxAge: 24*60*60*1000, httpOnly: true });
+            res.send("成功");
+        }
+    });
+}
