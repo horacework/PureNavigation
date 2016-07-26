@@ -347,3 +347,54 @@ body {
 a {
   color: #00B7FF;
 }
+
+/*---弹出窗口插件CSS----*/
+#artwl_mask {
+    background-color: #000;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    filter: alpha(opacity= 50);
+    display: none;
+}
+#artwl_boxcontain {
+    margin: 0 auto;
+    position: absolute;
+    z-index: 2;
+    line-height: 28px;
+    display: none;
+}
+#artwl_showbox {
+    padding: 10px;
+    background: #FFF;
+    border-radius: 5px;
+    margin: 20px;
+    min-width: 300px;
+    min-height: 200px;
+}
+#artwl_title {
+    position: relative;
+    height: 27px;
+    border-bottom: 1px solid #999;
+}
+#artwl_close {
+      position: absolute;
+      cursor: pointer;
+      outline: none;
+      top: 0;
+      right: 0;
+      z-index: 4;
+      width: 42px;
+      height: 42px;
+      overflow: hidden;
+      background-image: url(../images/feedback-close.png);
+      _background: none;
+  }
+#artwl_message {
+    padding: 10px 0px;
+    overflow: hidden;
+    line-height: 19px;
+}

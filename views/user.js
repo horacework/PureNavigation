@@ -27,7 +27,7 @@ exports.login = function(req, res){
             }else{
                 req.session.userId = result[0].id;
                 req.session.username = result[0].name;
-                //TODO: cookie保存与记录
+
                 cookiesSaveRecord(req,res);
             }
         }
@@ -57,9 +57,10 @@ exports.signup = function(req, res){
                        console.log("ERROR"+err);
                        res.send("注册失败");
                    }else{
-                       res.send("成功");
                        req.session.userId = result.id;
-                       //TODO: cookie保存与记录
+                       req.session.username = result.name;
+
+                       cookiesSaveRecord(req,res);
                    }
                 });
             }
@@ -81,7 +82,7 @@ function cookiesSaveRecord(req,res){
             res.send("成功");
         }else{
             console.log("保存cookies成功！");
-            res.cookie("userCook",cookieDetail.id,{ maxAge: 24*60*60*1000, httpOnly: true });
+            res.cookie("userCook",cookieDetail.id,{ maxAge: 30*24*60*60*1000, httpOnly: true });
             res.send("成功");
         }
     });
