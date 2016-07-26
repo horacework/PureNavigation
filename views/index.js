@@ -13,7 +13,6 @@ exports.init = function(req, res){
                 console.log("ERROR:"+err);
                 res.send("发生未知错误！");
             }else{
-                //TODO seesion中的username在cookies登录中无显示
                 res.render('index',{ title: '纯洁的导航', username:req.session.username, links:result});
             }
 
@@ -32,24 +31,20 @@ exports.init = function(req, res){
                 res.redirect('/login');
             }else{
                 var userid = result[0].userid;
-
-                req.models.cookies.find({userid:userid},["login","Z"],function(error,results){
-                    console.log(results[0]);
-                    if(error){
-                        res.redirect('/login');
-                    }else if(results[0].id != userCook){
-                        //不是最新的cookies
-                        res.redirect('/login');
-                    }else{
-                        req.session.userId = userid;
-                        res.redirect('/');
-                    }
-                })
+                req.models.user.find({id:userid},function(error,person){
+                   if(error){
+                       res.redirect('/login');
+                   }else{
+                       console.log(person);
+                       req.session.userId = userid;
+                       req.session.username = person[0].name;
+                       res.redirect('/');
+                   }
+                });
             }
         });
 
     }else{
-        console.log(req.cookies.userCook);
         res.redirect('/login');
     }
 
