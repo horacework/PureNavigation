@@ -44,5 +44,5 @@ function clearCookie(name) {
 
 
 //关于 弹窗
-$.artwl_bind({ showbtnid: "about", title: "关于", content: "lallalala" });
+$.artwl_bind({ showbtnid: "about", title: "关于", content: $("#aboutContent").html() });
 //$.artwl_bind({ showbtnid: "logout", title: "From Cnblogs Artwl", content: $("#Content").html() });

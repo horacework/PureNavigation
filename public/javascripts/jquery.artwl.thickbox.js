@@ -61,6 +61,10 @@
                 $("#artwl_mask").hide();
                 $("#artwl_boxcontain").hide();
             });
+            $("#artwl_mask").click(function () {
+                $("#artwl_mask").hide();
+                $("#artwl_boxcontain").hide();
+            });
         },
         artwl_close:function(options){
             options=$.extend({
