@@ -8,13 +8,21 @@
                 content:""
                 },options);
             var mask = '<div id="artwl_mask"></div>';
+            //var boxcontain = '<div id="artwl_boxcontain">\
+            //                      <a id="artwl_close" href="javascript:void(0);" title="Close"></a>\
+            //                      <div id="artwl_showbox">\
+            //                          <div id="artwl_title">\
+            //                              <h2>\
+            //                                  Title</h2>\
+            //                          </div>\
+            //                          <div id="artwl_message">\
+            //                              Content<br />\
+            //                          </div>\
+            //                      </div>\
+            //                  </div>';
             var boxcontain = '<div id="artwl_boxcontain">\
                                   <a id="artwl_close" href="javascript:void(0);" title="Close"></a>\
                                   <div id="artwl_showbox">\
-                                      <div id="artwl_title">\
-                                          <h2>\
-                                              Title</h2>\
-                                      </div>\
                                       <div id="artwl_message">\
                                           Content<br />\
                                       </div>\
@@ -30,9 +38,9 @@
             if ($("#artwl_mask").length == 0) {
                 $("body").append(mask + boxcontain);
                 //$("head").append("<style type='text/css'>" + cssCode + "</style>");
-                if(options.title!=""){
-                    $("#artwl_title").html(options.title);
-                }
+                //if(options.title!=""){
+                //    $("#artwl_title").html(options.title);
+                //}
                 if(options.content!=""){
                     $("#artwl_message").html(options.content);
                 }

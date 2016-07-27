@@ -35,6 +35,8 @@ exports = module.exports = function(app) {
     app.post('/login', require('../views/user').login);
     //注册接口
     app.post('/signup',require('../views/user').signup);
+    //用户登出接口
+    app.post('/logout',require('../views/user').logout);
     //测试cookies
     app.get('/getcookies',function(req, res){
 

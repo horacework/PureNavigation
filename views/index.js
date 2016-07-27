@@ -17,8 +17,6 @@ exports.init = function(req, res){
             }
 
         });
-
-        //TODO 判断并刷新cookies
     }else if(req.cookies.userCook){
         //cookies登录
         //有待验证的cookies变量

@@ -4,12 +4,12 @@ var uuid = require("node-uuid");
 
 exports.init = function(req, res){
 
-    if(req.cookies.userCook){
-        console.log(req.cookies.userCook);
-        res.send("检查到cookies");
+    if(req.session.userId || req.cookies.userCook){
+        res.redirect("/")
     }else{
         res.render('login',{ title: '导航登录页' });
     }
+
 };
 
 
@@ -70,6 +70,27 @@ exports.signup = function(req, res){
 
 };
 
+exports.logout = function(req, res){
+    var cookieId = req.body.userCook;
+    req.models.cookies.find(cookieId,function(err,result){
+        if(err){
+            res.send("服务器错误，登出失败！");
+            next();
+        }
+        result[0].logout = new Date().toLocaleString();;
+        result[0].isLogout = 1;
+        result[0].save(function(err){
+            if(err){
+                res.send("服务器错误，登出失败！");
+            }else{
+                req.session.userId = false;
+                res.send("成功");
+            }
+        });
+
+    });
+};
+
 function cookiesSaveRecord(req,res){
     //TODO 生成cookies、保存到数据库、发送到客户浏览器
     var cookieDetail = {};
@@ -82,7 +103,7 @@ function cookiesSaveRecord(req,res){
             res.send("成功");
         }else{
             console.log("保存cookies成功！");
-            res.cookie("userCook",cookieDetail.id,{ maxAge: 30*24*60*60*1000, httpOnly: true });
+            res.cookie("userCook",cookieDetail.id,{ maxAge: 30*24*60*60*1000, httpOnly: false });
             res.send("成功");
         }
     });
