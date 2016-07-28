@@ -40,7 +40,29 @@ function clearCookie(name) {
     setCookie(name, "", -1);
 }
 
+$("#header-weather").click(function () {
 
+    if (window.navigator.geolocation) {
+        var options = {enableHighAccuracy: false};
+        window.navigator.geolocation.getCurrentPosition(handleSuccess, handleError, options);
+        } else {
+            //TODO 获取当前ip，利用ip定位
+            alert("浏览器不支持html5来获取地理位置信息")
+        }
+
+});
+
+function handleSuccess(position) {
+    var long = position.coords.longitude.toFixed(6);
+    var lati = position.coords.latitude.toFixed(6);
+    console.log("/api/weather?longitude="+long+"&&latitude="+lati);
+    $.get("/api/weather?longitude="+long+"&&latitude="+lati,function (results) {
+        console.log(results);
+    })
+}
+function handleError(error) {
+    alert(error);
+}
 
 
 //关于 弹窗

@@ -37,6 +37,13 @@ exports = module.exports = function(app) {
     app.post('/signup',require('../views/user').signup);
     //用户登出接口
     app.post('/logout',require('../views/user').logout);
+
+
+    //API接口
+    app.get('/api/weather',require('../controller/api/weather').init);
+
+
+
     //测试cookies
     app.get('/getcookies',function(req, res){
 
