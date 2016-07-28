@@ -10,7 +10,7 @@ exports.init = function(req, res){
     var latitude = req.query.latitude;
     console.log(longitude);
     var regeoUrl = "http://restapi.amap.com/v3/geocode/regeo?location="+longitude+","+latitude+"&&key="+amapKey;
-    var weatherUrl = "http://restapi.amap.com/v3/weather/weatherInfo?key="+amapKey+"&&extensions=all&&city=";
+    var weatherUrl = "http://restapi.amap.com/v3/weather/weatherInfo?key="+amapKey+"&&extensions=base&&city=";
     request(regeoUrl,function (err,response,body) {
         if (!err && response.statusCode == 200) {
             var resultAdCode = JSON.parse(body).regeocode.addressComponent.adcode;
