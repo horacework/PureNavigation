@@ -92,7 +92,6 @@ exports.logout = function(req, res){
 };
 
 function cookiesSaveRecord(req,res){
-    //TODO 生成cookies、保存到数据库、发送到客户浏览器
     var cookieDetail = {};
     cookieDetail.id = uuid.v4();
     cookieDetail.userid = req.session.userId;

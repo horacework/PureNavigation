@@ -60,10 +60,12 @@
             $("#artwl_close").click(function () {
                 $("#artwl_mask").hide();
                 $("#artwl_boxcontain").hide();
+                $("#newContent").hide();
             });
             $("#artwl_mask").click(function () {
                 $("#artwl_mask").hide();
                 $("#artwl_boxcontain").hide();
+                $("#newContent").hide();
             });
         },
         artwl_close:function(options){

@@ -6,9 +6,9 @@ block content
     div#header
       div#header-menu
         div#header-weather
-          div#weather-city City
-          div#weather-icon Weather
-          div#weather-temp Temp
+          div#weather-city
+          div#weather-icon
+          div#weather-temp
         //div#change-bg.trans
         //  span.change-bg-font.trans.glyphicon.glyphicon-refresh(aria-hidden="true")
       div#header-user
@@ -26,14 +26,22 @@ block content
               option 谷歌
               option 百度
               option 必应
-          button.btn.btn-primary.search-btn-font(type="submit") 搜索
+          button#searchBtn.btn.btn-primary.search-btn-font(type="submit") 搜索
     div#website
       each item in links
         div.webItem
           a.webDesc.trans(href="http://"+item.url target="_blank")= item.name
           div.webLink= item.url
-      div.webItem
-        a.webDesc.trans(href="#" target="_blank") +
+      each item in links
+        div.webItem
+          a.webDesc.trans(href="http://" + item.url target="_blank")= item.name
+          div.webLink= item.url
+      each item in links
+        div.webItem
+          a.webDesc.trans(href="http://" + item.url target="_blank")= item.name
+          div.webLink= item.url
+      div.webItem#newUrl
+        div.webDesc.trans +
         //div.webLink www.zhihu.com
     div#aboutContent
       div.aboutTop
@@ -48,4 +56,15 @@ block content
           a.github(target="_blank" href="https://github.com/horacework")
           a.google(target="_blank" href="https://plus.google.com/u/0/108432907884807207484")
           a.zhihu(target="_blank" href="https://www.zhihu.com/people/chen-hou-ren")
-    div#newContent
+  div#newContent
+    form.form-inline
+      div.form-group
+        label(for="newUrlName") 显示名称：
+        input#newUrlName.form-control(type="text" placeholder="草榴网、网易云音乐")
+      div.form-group
+        label(for="newUrlLine") 域名地址：
+        div.input-group
+          div.input-group-addon http://
+          input#newUrlLine.form-control(type="text" placeholder="www.google.com")
+      input#newContentBtn.btn.btn-primary(type="button" value="添加")
+      input#newContentCancel.btn.btn-danger(type="button" value="取消")

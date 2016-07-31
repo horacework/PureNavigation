@@ -10,3 +10,5 @@ var db = {
 exports.mysql = {
     url: "mysql://"+db.username+":"+db.password+"@"+db.host+"/"+db.name
 };
+
+exports.amapKey = "你的高德地图key";

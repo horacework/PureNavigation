@@ -40,9 +40,10 @@ exports = module.exports = function(app) {
 
 
     //API接口
-    app.get('/api/weather',require('../controller/api/weather').init);
-
-
+    //基于经纬度的天气查询
+    app.get('/api/weather/geo',require('../controller/api/weather').init);
+    //基于IP地址的天气查询
+    app.get('/api/weather/ip',require('../controller/api/weather').ip);
 
     //测试cookies
     app.get('/getcookies',function(req, res){
