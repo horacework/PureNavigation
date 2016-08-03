@@ -39,6 +39,11 @@ exports = module.exports = function(app) {
     app.post('/logout',require('../views/user').logout);
 
 
+    //用户功能相关
+    //添加个人导航url
+    app.post('/addUrl',require('../views/navi').addUrl);
+
+
     //API接口
     //基于经纬度的天气查询
     app.get('/api/weather/geo',require('../controller/api/weather').init);

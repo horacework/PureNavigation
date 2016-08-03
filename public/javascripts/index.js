@@ -4,16 +4,7 @@
  */
 
 $(function(){
-
-    if(window.navigator.geolocation) {
-        console.log("使用经纬度定位");
-        //var options = {enableHighAccuracy: false};
-        window.navigator.geolocation.getCurrentPosition(handleSuccess, handleError);
-    }else{
-        console.log("使用IP定位");
-        getWeatherByIP();
-    }
-
+    getWeatherByIP();
 });
 
 
@@ -43,8 +34,7 @@ function setCookie(cname, cvalue, exdays) {
     document.cookie = cname + "=" + cvalue + "; " + expires + "; path=/";
 }
 
-function getCookie(name)
-{
+function getCookie(name) {
     var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
     if(arr=document.cookie.match(reg))
         return unescape(arr[2]);
@@ -58,18 +48,6 @@ function clearCookie(name) {
 
 //基于经纬度定位获取天气
 $("#header-weather").click(function () {});//TODO 到时候搞个预报
-
-function handleSuccess(position) {
-    console.log("成功获取位置，正在获取天气...");
-    var long = position.coords.longitude.toFixed(6);
-    var lati = position.coords.latitude.toFixed(6);
-    $.get("/api/weather/geo?longitude="+long+"&&latitude="+lati,function (data) {
-        showWeather(data);
-    })
-}
-function handleError(error) {
-    //失败情况
-}
 
 //基于IP定位获取天气
 function getWeatherByIP() {
@@ -94,11 +72,10 @@ function showWeather(data) {
 }
 
 
-//关于 弹窗
+//“关于我”---弹窗
 $.artwl_bind({ showbtnid: "about", title: "关于", content: $("#aboutContent").html() });
-//$.artwl_bind({ showbtnid: "newUrl", title: "添加URL", content: $("#newContent").html() });
 
-//添加URL页面弹窗
+//添加URL页面---弹窗
 $("#newUrl").click(function () {
     var height = $("#newContent").height();
     var width = $("#newContent").width();
@@ -110,6 +87,29 @@ $("#newUrl").click(function () {
         $("#artwl_mask").css("width", $(window).width() + "px").css("height", $(window).height() + "px").css("background", "#888");
         //$("#artwl_close").css("top", "30px").css("right", "30px").css("font-size", "20px").text("关闭");
     }
+});
+
+//添加URL操作---确定按钮
+$("#newContentBtn").click(function () {
+    var regExpUrl = /([a-z]([a-z0-9\-]*[\.])+([a-z]{2}|aero|arpa|biz|com|coop|edu|gov|info|int|jobs|mil|museum|name|nato|net|org|pro|travel)|(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))(\/[a-z0-9_\-\.~]+)*(\/([a-z0-9_\-\.]*)(\?[a-z0-9+_\-\.%=&]*)?)?(#[a-z][a-z0-9_]*)?$/;
+    var reExpName = /^[a-zA-Z0-9]{1,9}$|^[\u4e00-\u9fa5]{1,6}$/;
+    var url = $('#newUrlLine').val();
+    var name = $('#newUrlName').val();
+    console.log(url);
+    console.log(name);
+    if (!regExpUrl.test(url)){
+        alert("URL不合法");
+    }else if (!reExpName.test(name)){
+        alert("Name不合法");
+    }else {
+        //TODO ajax post 到服务器
+    }
+});
+
+//添加URL操作---取消按钮
+$("#newContentCancel").click(function () {
+    $("#artwl_mask").hide();
+    $("#newContent").hide();
 });
 
 //回到顶部按钮

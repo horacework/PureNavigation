@@ -500,7 +500,7 @@ body {
 /*---弹出窗口插件CSS----*/
 #artwl_mask {
     background-color: #000;
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: 0px;
     width: 100%;

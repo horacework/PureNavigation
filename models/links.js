@@ -6,8 +6,8 @@ exports = module.exports = function(db,models) {
         userid    : {type:'text'},
         name   : {type:'text'},
         url   : {type:'text'},
-        count   : {type:'number'},
-        isDel   : {type:'number'}
+        count   : {type:'number',defaultValue: '0'},
+        isDel   : {type:'number',defaultValue: '0'}
     }, {
         methods: {
             getUserName:function(){
