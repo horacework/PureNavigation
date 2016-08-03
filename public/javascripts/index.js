@@ -103,14 +103,30 @@ $("#newContentBtn").click(function () {
         alert("Name不合法");
     }else {
         //TODO ajax post 到服务器
+        $.post('/addUrl',{name:name,url:url},function (result) {
+            switch(result.status){
+                case 0:
+                    $('#website .webItem').eq($(this).size()-3).after("<div class='webItem'><a href='http:\/\/"+url+"target='_blank' class='webDesc trans'>"+name+"</a><div class='webLink'>"+url+"</div></div>");
+                    newContentCancel()
+                    break;
+                default:
+                    alert(result.message);
+                    newContentCancel()
+            }
+
+        });
     }
 });
 
 //添加URL操作---取消按钮
 $("#newContentCancel").click(function () {
+    newContentCancel();
+});
+
+function newContentCancel() {
     $("#artwl_mask").hide();
     $("#newContent").hide();
-});
+}
 
 //回到顶部按钮
 $("#backToTop").click(function(){
