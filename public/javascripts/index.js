@@ -95,14 +95,11 @@ $("#newContentBtn").click(function () {
     var reExpName = /^[a-zA-Z0-9]{1,9}$|^[\u4e00-\u9fa5]{1,6}$/;
     var url = $('#newUrlLine').val();
     var name = $('#newUrlName').val();
-    console.log(url);
-    console.log(name);
     if (!regExpUrl.test(url)){
         alert("URL不合法");
     }else if (!reExpName.test(name)){
         alert("Name不合法");
     }else {
-        //TODO ajax post 到服务器
         $.post('/addUrl',{name:name,url:url},function (result) {
             switch(result.status){
                 case 0:
