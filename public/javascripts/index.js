@@ -20,7 +20,20 @@ $(function(){
 });
 
 //搜索功能
-
+$('#searchBtn').click(search);
+$(document).keypress(function(event){
+    if(event.keyCode == 13){
+        search();
+    }
+});
+function search() {
+    var wd = $('#search-box').val();
+    var ss = $('#search-select').val();
+    console.log(wd);
+    console.log(ss);
+    //switch ()
+    //TODO 搜索弹窗
+}
 
 
 //登出

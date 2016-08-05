@@ -21,12 +21,13 @@ block content
         form.form-inline.search-form
           div.form-group
             input.form-control.search-font#search-box(type="text" placeholder="Search")
+            input(type="text" style="display:none")
           div.form-group
-            select.form-control.search-select.search-font
+            select#search-select.form-control.search-select.search-font
               option 谷歌
               option 百度
               option 必应
-          button#searchBtn.btn.btn-primary.search-btn-font(type="submit") 搜索
+          input#searchBtn.btn.btn-primary.search-btn-font(type="button" value="搜索")
     div#website
       each item in links
         div.webItem
