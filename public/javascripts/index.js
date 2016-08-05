@@ -4,8 +4,23 @@
  */
 
 $(function(){
-    getWeatherByIP();
+    //getWeatherByIP();
+    $('#search-box').select();
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(locationSuccess, locationError,{
+            // 指示浏览器获取高精度的位置，默认为false
+            enableHighAccuracy: true,
+            // 指定获取地理位置的超时时间，默认不限时，单位为毫秒
+            timeout: 5000,
+            // 最长有效期，在重复获取地理位置时，此参数指定多久再次获取位置。
+            maximumAge: 3000
+        });
+    }
 });
+
+//搜索功能
+
 
 
 //登出
@@ -49,12 +64,23 @@ function clearCookie(name) {
 //基于经纬度定位获取天气
 $("#header-weather").click(function () {});//TODO 到时候搞个预报
 
-//基于IP定位获取天气
-function getWeatherByIP() {
-    $.get("/api/weather/ip",function (data) {
+function locationSuccess(position) {
+    var long = position.coords.longitude.toFixed(6);
+    var lati = position.coords.latitude.toFixed(6);
+    $.get("/api/weather/geo?longitude="+long+"&&latitude="+lati,function (data) {
         showWeather(data);
     })
 }
+function locationError(error) {
+    console.log("获取位置失败:"+error);//失败情况
+}
+
+//基于IP定位获取天气
+// function getWeatherByIP() {
+//     $.get("/api/weather/ip",function (data) {
+//         showWeather(data);
+//     })
+// }
 
 //显示天气情况
 function showWeather(data) {

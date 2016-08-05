@@ -1,12 +1,18 @@
 /**
  * Created by HoraceChan on 2016/1/29.
  */
+
+$(function(){
+    $('#login-username').select();
+});
+
 //点击切换到“注册”
 $("#signupBtn").click(function(){
 
     //$("#signinBox").fadeOut();
     $("#signinBox").css("display","none");
     $("#signupBox").fadeIn();
+    $('#signup-username').select();
 
 });
 
@@ -15,6 +21,7 @@ $("#signinBtn").click(function(){
 
     $("#signupBox").css("display","none");
     $("#signinBox").fadeIn();
+    $('#login-username').select();
 
 });
 

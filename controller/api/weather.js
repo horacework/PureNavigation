@@ -20,7 +20,7 @@ exports.init = function(req, res){
 };
 
 exports.ip = function(req, res){
-    var IPAddress = req.ip.match(/\d+\.\d+\.\d+\.\d+/)[0];
+    var IPAddress = req.ips;//.match(/\d+\.\d+\.\d+\.\d+/);
     var url = "http://restapi.amap.com/v3/ip?key="+amapKey+"&ip=";
 
     request(url+IPAddress,function (err, response, body) {

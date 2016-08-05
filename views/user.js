@@ -72,11 +72,12 @@ exports.signup = function(req, res){
 
 exports.logout = function(req, res){
     var cookieId = req.body.userCook;
-    req.models.cookies.find(cookieId,function(err,result){
+    req.models.cookies.find({id:cookieId},function(err,result){
         if(err){
             res.send("服务器错误，登出失败！");
             next();
         }
+        console.log(result);
         result[0].logout = new Date().toLocaleString();;
         result[0].isLogout = 1;
         result[0].save(function(err){

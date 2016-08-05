@@ -6,8 +6,6 @@
 exports.init = function(req, res){
     if(req.session.userId){
         //Seesion登录
-        console.log("userid:"+req.session.userId);
-        console.log("cookies:"+req.cookies.userCook);
         req.models.links.find({userid:req.session.userId},function(err,result){
             if(err){
                 console.log("ERROR:"+err);
@@ -21,7 +19,7 @@ exports.init = function(req, res){
         //cookies登录
         //有待验证的cookies变量
         var userCook = req.cookies.userCook;
-        req.models.cookies.find({id:userCook}, function(err,result){
+        req.models.cookies.find({id:userCook,isLogout:0}, function(err,result){
             if(err){
                 res.redirect('/login');
             }else if(result.length==0){
@@ -33,7 +31,6 @@ exports.init = function(req, res){
                    if(error){
                        res.redirect('/login');
                    }else{
-                       console.log(person);
                        req.session.userId = userid;
                        req.session.username = person[0].name;
                        res.redirect('/');
