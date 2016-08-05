@@ -29,10 +29,19 @@ $(document).keypress(function(event){
 function search() {
     var wd = $('#search-box').val();
     var ss = $('#search-select').val();
-    console.log(wd);
-    console.log(ss);
-    //switch ()
-    //TODO 搜索弹窗
+    switch (ss){
+        case '谷歌':
+            window.open("http://www.google.com.hk/search?hl=zh-CN&source=hp&q="+encodeURI(wd));
+            break;
+        case '百度':
+            window.open("http://www.baidu.com/s?wd="+encodeURI(wd));
+            break;
+        case '必应':
+            window.open("http://cn.bing.com/search?q="+encodeURI(wd));
+            break;
+        default:
+            break;
+    }
 }
 
 
